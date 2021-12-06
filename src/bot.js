@@ -60,7 +60,7 @@ client.on('messageCreate', async (message) => {
             
         }
          else if(CMD_NAME === 'chart'){
-            const msg = await message.channel.send('---');
+            const msg = await message.channel.send('--');
 
             binance.websockets.prevDay(coin, (error, response) => {
                 if(response['close'] > 1){
