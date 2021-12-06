@@ -6,8 +6,6 @@ const binance = new Binance().options({
   APISECRET: process.env.SECRET
 });
 
-//npm run dev - start bot
-
 const { Client} = require('discord.js');
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_BANS"] });
 const PREFIX = '$';
@@ -56,8 +54,6 @@ client.on('messageCreate', async (message) => {
                     return num = 1;
                 }
             }
-
-            
         }
          else if(CMD_NAME === 'chart'){
             const msg = await message.channel.send('--');
@@ -89,7 +85,6 @@ client.on('messageCreate', async (message) => {
 `>>> Binance price bot has only 2 functions now, here is how to use them:
 \n**chart**: $chart {coin, for instance eth/eur or etheur} - real time symbol price 
 \n**alert**: $alert {coin} {price} - function triggers when current coin price is equal or higher that price you typed`
-                
                 );
         }
     }
