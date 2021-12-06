@@ -1,1 +1,1 @@
-web: nodemon ./src/bot.js
+web: node ./src/bot.js
