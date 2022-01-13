@@ -3,7 +3,7 @@ const WebSocket = require('ws');
 const Binance = require('node-binance-api');
 const binance = new Binance().options({
   APIKEY: process.env.KEY,
-  APISECRET: process.env.SECRET
+  APISECRET: process.env.SECRET,
 });
 
 const { Client} = require('discord.js');
@@ -13,6 +13,7 @@ const PREFIX = '$';
 
 client.on('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
+    client.user.setActivity("Type $help");
 });
 
 client.on('messageCreate', async (message) => {
@@ -26,19 +27,25 @@ client.on('messageCreate', async (message) => {
             .split(/\s+/); //regular expression
 
             let coin = undefined;
-            if(CMD_NAME === 'help'){}          
-            else if (args[0] != undefined) {
-                if(args[0].includes('/')){
-                    const word = args[0].split('/');
-                    coin = `${word[0]}${word[1]}`;
-                }else {
-                    coin = args[0];
+
+            if(CMD_NAME === 'alert' || CMD_NAME === 'chart' || CMD_NAME === 'help'){
+                if(CMD_NAME === 'help' || CMD_NAME === 'pic'){}  
+                else if (args[0] != undefined) {
+                    if(args[0].includes('/')){
+                        const word = args[0].split('/');
+                        coin = `${word[0]}${word[1]}`;
+                    }else {
+                        coin = args[0];
+                    }
+                } else {
+                    return await message.reply('You need to put arguments, check $help function.');
                 }
-            } else {
-                return await message.reply('You need to put arguments, check $help function.');
+            } else{
+                await message.reply(`We don not support this function.`);
             }
+            
         
-        if(CMD_NAME === 'alert'){
+        if(CMD_NAME == 'alert'){
             let ws = new WebSocket(`wss://stream.binance.com:9443/ws/${coin}@trade`);
             
             let num = 0;
@@ -55,7 +62,7 @@ client.on('messageCreate', async (message) => {
                 }
             }
         }
-         else if(CMD_NAME === 'chart'){
+         else if(CMD_NAME == 'chart'){
             const msg = await message.channel.send('--');
 
             binance.websockets.prevDay(coin, (error, response) => {
@@ -80,13 +87,20 @@ client.on('messageCreate', async (message) => {
               }); 
             
         }
-        else if (CMD_NAME === 'help'){
+        else if (CMD_NAME == 'help'){
             await message.channel.send(
 `>>> Binance price bot has only 2 functions now, here is how to use them:
 \n**chart**: $chart {coin, for instance eth/eur or etheur} - real time symbol price 
-\n**alert**: $alert {coin} {price} - function triggers when current coin price is equal or higher that price you typed`
+\n**alert**: $alert {coin} {price} - function triggers when current coin price is equal or higher that price you typed
+\n**pic**: $pic - sends a pic from my rpi camera`
                 );
         }
+        else if (CMD_NAME === 'about'){
+            msg.channel.send(
+  `>>>Author of this bot is **Imisuuu**
+  Github: https://github.com/Imisuuu`);
+        }
+
     }
 });
 

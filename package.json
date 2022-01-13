@@ -1,8 +1,8 @@
 {
-  "name": "discord-js-bot",
+  "name": "binance-price-bot",
   "version": "1.0.0",
-  "description": "Discord bot that uses Binance API to get info about crypto.",
-  "main": "index.js",
+  "description": "Simple bot that uses Binance API to get crypto prices.",
+  "main": "bot.js",
   "scripts": {
     "start": "node ./src/bot.js",
     "dev": "nodemon ./src/bot.js"
@@ -13,6 +13,7 @@
   "dependencies": {
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
-    "node-binance-api": "^0.13.1"
+    "node-binance-api": "^0.13.1",
+    "pi-camera": "^1.6.0"
   }
 }
