@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simple bot that uses Binance API to get crypto prices.",
   "main": "bot.js",
+  "repository": "https://github.com/Imisuuu/Binance-bot",
   "scripts": {
     "start": "node ./src/bot.js",
     "dev": "nodemon ./src/bot.js"
