@@ -1,20 +1,28 @@
 {
   "name": "binance-price-bot",
   "version": "1.0.0",
-  "description": "Simple bot that uses Binance API to get crypto prices.",
-  "main": "bot.js",
-  "repository": "https://github.com/Imisuuu/Binance-bot",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/bot.js",
     "dev": "nodemon ./src/bot.js"
   },
   "keywords": [],
-  "author": "Imisuu",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "discord.js": "^13.3.1",
-    "dotenv": "^10.0.0",
     "node-binance-api": "^0.13.1",
+    "nodemon": "^2.0.15",
     "pi-camera": "^1.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imisuuu/Binance-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Imisuuu/Binance-bot/issues"
+  },
+  "homepage": "https://github.com/Imisuuu/Binance-bot#readme",
+  "description": ""
 }
