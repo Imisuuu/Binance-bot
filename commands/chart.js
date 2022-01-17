@@ -1,39 +1,28 @@
 const Binance = require('node-binance-api');
-const binance = new Binance().options({
+global.binance = new Binance().options({
   APIKEY: client.config.key,
   APISECRET: client.config.secret,
+  useServerTime: true,
 });
 
 
-const chart = async (msg, coin) => {
-    try{
-        binance.websockets.prevDay(coin, (error, response) => {
-        if(response['close'] > 1){
-            return msg.edit(
+module.exports = {
+  name: 'chart',
+  description: 'chart command',
+  async execute (msg, coin, message){
+    binance.websockets.prevDay(coin, (error, response) => {
+      return msg.edit(
 `>>> ***${response['symbol'].toUpperCase()} PRICE IN 24H***
-**Price**: ${parseFloat(response['close']).toFixed(2)}
-**High**: ${parseFloat(response['high']).toFixed(2)}
-**Low**: ${parseFloat(response['low']).toFixed(2)}
+**Price**: ${parseFloat(response['close']) > 1 ? parseFloat(response['close']).toFixed(2) : parseFloat(response['close'])}
+**High**: ${parseFloat(response['high']) > 1 ? parseFloat(response['high']).toFixed(2) : parseFloat(response['high'])}
+**Low**: ${parseFloat(response['low']) > 1 ? parseFloat(response['low']).toFixed(2) : parseFloat(response['low'])}
 **%Change**: ${parseFloat(response['percentChange']).toFixed(2)}%
-**Volume**: ${parseFloat(response['volume']).toFixed(2)}`);
-        }else if (response['close'] <= 1){
-            return msg.edit(
-`>>> ***${response['symbol'].toUpperCase()} PRICE IN 24H***
-**Price**: ${response['close']}
-**High**: ${response['high']}
-**Low**: ${response['low']}
-**%Change**: ${parseFloat(response['percentChange']).toFixed(2)}%
-**Volume**: ${parseFloat(response['volume']).toFixed(2)}`);
-        } else { //nie dziala
-            return message.reply('This crypto has not been found in the database.');
-        }
-        
+**Volume**: ${parseFloat(response['volume']).toFixed(2)}`)
+      .catch(() => {
+        return;
       });
-    } catch (err){
-        console.log(`Huston we got a problem: ${err}`);
-        }
+        
+  });
+  }
 }
-
-module.exports = chart;
-
 

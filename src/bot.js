@@ -1,43 +1,43 @@
-const { Client} = require('discord.js');
+const { Client, Collection } = require('discord.js');
 global.client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_BANS"] });
-client.config = require('./config')
+client.config = require('./config');
 
-const chart = require('../commands/chart');
-const alert = require('../commands/alert');
-const help = require('../commands/help');
-const about = require('../commands/about');
-const ready = require('../events/ready');
-const getCoin = require('../core/coin');
+const commands = require('../handlers/commands');
+
 
 client.on('ready', () => {
-    ready();
+    commands(Collection);
+    client.commands.get('ready').execute();
 });
 
 client.on('messageCreate', async (message) => {
-    //variables
-
     if(message.author.bot) return;
+    
     if(!message.content.startsWith(client.config.prefix)) return;
+    
     const [command, ...args] = message.content
         .trim()
         .substring(client.config.prefix.length)
         .split(/\s+/); //regular expression
 
-    let coin = getCoin(args, command);
+    let coin = client.commands.get('getCoin').execute(args, command, message);
    
     if(command == 'alert'){
-        alert(args, coin, message);
+        client.commands.get('alert').execute(args, coin, message);
     }
         else if(command == 'chart'){
         const msg = await message.channel.send('--');
-        chart(msg, coin);
+        client.commands.get('chart').execute(msg, coin, message);
         
     }
     else if (command == 'help'){
-        help(message);
+        client.commands.get('help').execute(message);
     }
     else if (command === 'about'){
-        about(message);
+        client.commands.get('about').execute(message);
+    }
+    else if (command === 'balance' || command === 'bal'){
+        client.commands.get('bal').execute(message);
     }
 });
 

@@ -1,7 +1,7 @@
 module.exports = {
     token: 'XXX',
-    prefix: '$',
+    prefix: 'XXX',
     key: 'XXX',
     secret: 'XXX',
-    playing: 'Type $help'
+    playing: 'XXX'
 };
