@@ -1,6 +1,6 @@
 module.exports = {
     name: 'getCoin',
-    description: 'chart command',
+    description: 'Get coin from arguments command',
     execute (args, CMD_NAME, message){
         let coin = undefined;
 

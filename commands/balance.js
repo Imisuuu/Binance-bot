@@ -1,6 +1,6 @@
 module.exports = {
   name: 'bal',
-  description: 'chart command',
+  description: 'Your ETH balance.',
   async execute (message){
     binance.balance((error, balances) => {
       if ( error ) return console.error(error);

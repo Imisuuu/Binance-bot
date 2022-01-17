@@ -1,6 +1,6 @@
 module.exports = {
     name: 'help',
-    description: 'chart command',
+    description: 'Help command',
     async execute (msg) {
         await msg.channel.send(
 ` ***         HELP ***

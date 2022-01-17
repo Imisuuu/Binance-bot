@@ -6,6 +6,8 @@ const commands = (Collection) => {
     readDir('/../commands/', 'commands');
     readDir('/../events', 'events');
     readDir('/../core', 'core');
+
+    console.log('All commands loaded successfully!');
 }
 
 function readDir(dirname, req){

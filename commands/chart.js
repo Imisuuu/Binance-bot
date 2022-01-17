@@ -8,7 +8,7 @@ global.binance = new Binance().options({
 
 module.exports = {
   name: 'chart',
-  description: 'chart command',
+  description: 'Chart command',
   async execute (msg, coin, message){
     binance.websockets.prevDay(coin, (error, response) => {
       return msg.edit(
