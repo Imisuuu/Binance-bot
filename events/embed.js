@@ -7,7 +7,7 @@ module.exports = {
     execute(...args) {
         const embed = new MessageEmbed()
         .setColor('#FFD700')
-        .setFooter('by Imisuuu😊')
+        .setFooter({text:'by Imisuuu😊'})
         if(args[0] !== 'nodesc'){
             embed.setDescription(args[0])
         }

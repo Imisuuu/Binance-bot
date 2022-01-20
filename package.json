@@ -8,7 +8,7 @@
     "dev": "nodemon ./src/bot.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Imisuuu",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.3.1",
