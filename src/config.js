@@ -3,6 +3,6 @@ module.exports = {
     prefix: 'XXX',
     key: 'XXX',
     secret: 'XXX',
-    playing: 'XXX',
+    playing: `XXX`,
     author: 'Imisuuu😊',
 };

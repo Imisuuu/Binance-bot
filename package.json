@@ -13,8 +13,7 @@
   "dependencies": {
     "discord.js": "^13.3.1",
     "node-binance-api": "^0.13.1",
-    "nodemon": "^2.0.15",
-    "pi-camera": "^1.6.0"
+    "nodemon": "^2.0.15"
   },
   "repository": {
     "type": "git",
@@ -24,5 +23,5 @@
     "url": "https://github.com/Imisuuu/Binance-bot/issues"
   },
   "homepage": "https://github.com/Imisuuu/Binance-bot#readme",
-  "description": ""
+  "description": "Simple bot that uses Binance API to get crypto prices."
 }

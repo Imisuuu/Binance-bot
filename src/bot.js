@@ -25,9 +25,8 @@ client.on('messageCreate', async (message) => {
     if(command == 'alert'){
         client.commands.get('alert').execute(args, coin, message);
     }
-        else if(command == 'chart'){
-        const msg = await message.channel.send('--');
-        client.commands.get('chart').execute(msg, coin, message);
+    else if(command == 'chart'){
+        client.commands.get('chart').execute(message, coin);
         
     }
     else if (command == 'help'){
