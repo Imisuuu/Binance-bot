@@ -40,4 +40,4 @@ If you have just cloned this project, edit the `config.js` file which is in the 
 
 <h2>Thank you all for using this bot :)</h2>
 If you like it please leave a star and fork it.
-If you run across any issue please create a new issue.
+</br>If you run across any issue please create a new issue.
