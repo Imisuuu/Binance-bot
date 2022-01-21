@@ -5,7 +5,7 @@ If you have just cloned this project, edit the `config.js` file which is in the 
 <h2>First step</h2>
 <ul>
   <li> token: this is your discord bot token, you can find it here : https://discord.com/developers/docs/game-sdk/applications</li>
-  <li> prefix: this is the bot prefix, I presonally like `$` :)</li>
+  <li> prefix: this is the bot prefix, I presonally like $</li>
   <li> key: this is your binance api key, you need to create a binance account</li>
   <li> secret: this is your binance api secret key (this is only visible for the first time on binance website!)</li>
   <li> playing: this is the playing status of the bot
