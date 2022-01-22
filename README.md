@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Issues](#issues)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Run](#run)
@@ -10,6 +11,9 @@
 
 ## General info
 <h4>This is just a simple discord bot, which uses the Binance API to get prices.</h4>
+
+## Issues
+* If you get an `[Symbol(code)]: 'EMBED_FOOTER_TEXT'` error, change `.setFooter({text:'by Imisuuu😊'})` in embed.js file to `.setFooter('by Imisuuu😊')`.
 
 ## Technologies
 Project is created with:
