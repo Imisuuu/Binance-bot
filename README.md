@@ -1,43 +1,68 @@
 <h1>Binance Price Bot</h1>
-<h3>This is just a simple discord bot, which uses the Binance API to get prices.</h3>
 
-If you have just cloned this project, edit the `config.js` file which is in the `./src` directory.
-<h2>First step</h2>
-<ul>
-  <li> token: this is your discord bot token, you can find it here : https://discord.com/developers/docs/game-sdk/applications</li>
-  <li> prefix: this is the bot prefix, I presonally like $</li>
-  <li> key: this is your binance api key, you need to create a binance account</li>
-  <li> secret: this is your binance api secret key (this is only visible for the first time on binance website!)</li>
-  <li> playing: this is the playing status of the bot
-</ul>
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Run](#run)
+* [Commands](#commands)
 
-<h2>Commands</h2>
+
+## General info
+<h4>This is just a simple discord bot, which uses the Binance API to get prices.</h4>
+
+## Technologies
+Project is created with:
+* discord.js: 13.6.0
+* node-binance-api: 0.13.1
+* nodemon: 2.0.15
+
+## Setup
+```
+$ cd ../Binance-bot
+$ npm i discord.js
+$ npm i node-binance-api
+$ npm i nodemon
+```
+Then edit the `config.js` file which is in the `./src` directory.
+
+* token: discord bot token => https://discord.com/developers/docs/game-sdk/applications
+* prefix: bot prefix
+* key: binance API key
+* secret: binance API secret key
+* playing: playing status of the bot
+
+## Run
+```
+$ npm run dev
+```
+
+## Commands
 <h3>For instance I'll use $ as a prefix.</h3>
-<ul>
-  <li>
-    Usage: $chart <pair>
-    </br>Example: $chart etheur(eth/eur)
-    </br>Sends prices, %change etc. of the pair
-  </li>
-  <li>
-    Usage: $alert <pair> <alert price>
-    </br>Example: $alert btcbusd(btc/busd) 51000
-    </br>Alerts discord user that used this command when (btcbusd) price is greater or equal to (51000)
-  </li>
-  <li>
-    Usage: $bal/$balance
-    </br>Sends an ETH balance from the Binance API (currently only ETH - bug in library)
-  </li>
-  <li>
-    Usage: $help
-    </br>Sends a full list of commands
-  </li>
-  <li>
-    Usage: $about
-    </br>Sends information about the author
-  </li>
-</ul>
 
-<h2>Thank you all for using this bot :)</h2>
-If you like it please leave a star and fork it.
-</br>If you run across any issue please create a new issue.
+`$price/getPrice`
+</br>_Sends prices, %change etc. of the pair_
+</br>**Usage:** $chart <pair>
+</br>**Example:** $chart etheur(eth/eur)
+
+`$alert`
+</br>_Alerts command author when the (btcbusd) price is greater or equal to (51000)_
+</br>**Usage:** $alert <pair> <alert price>
+</br>**Example:** $alert btcbusd(btc/busd) 51000
+
+`$bal/balance`
+</br>_Sends an ETH balance from the Binance API (currently only ETH - bug in library)_
+</br>**Usage:** $bal/$balance
+
+`$help`
+</br>_Sends a full list of commands_
+</br>**Usage:** $help
+
+`$about`
+</br>_Sends information about the author_
+</br>**Usage:** $about
+
+
+## Thank you all for using this bot :)
+* If you like it please leave a star and fork it.
+* If you run across any issue please create a new issue.
