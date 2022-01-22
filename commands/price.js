@@ -7,7 +7,7 @@ global.binance = new Binance().options({
 
 
 module.exports = {
-  name: 'chart',
+  name: 'price',
   description: 'Sends real time changing price of the requested crypto.',
   async execute (msg, coin){
     let embed = client.commands.get('embed').execute('Desc');

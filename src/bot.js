@@ -25,8 +25,8 @@ client.on('messageCreate', async (message) => {
     if(command == 'alert'){
         client.commands.get('alert').execute(args, coin, message);
     }
-    else if(command == 'chart'){
-        client.commands.get('chart').execute(message, coin);
+    else if(command == 'price' || command == 'getPrice'){
+        client.commands.get('price').execute(message, coin);
         
     }
     else if (command == 'help'){
