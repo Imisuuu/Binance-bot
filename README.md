@@ -30,6 +30,8 @@ $ npm i nodemon
 ```
 Then edit the `config.js` file which is in the `./src` directory.
 
+<h4>Key and secret is only needed for checking your balance. Otherwise leave it unchanged.</h4>
+
 * token: discord bot token => https://discord.com/developers/docs/game-sdk/applications
 * prefix: bot prefix
 * key: binance API key
